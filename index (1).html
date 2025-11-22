@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرم درخواست تأسیس گنگ جدید - سرور  RADAN RP</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@latest/font-face.css">
+  <style>
+    :root {
+      --primary: #8B0000;
+      --primary-dark: #660000;
+      --secondary: #D4AF37;
+      --dark: #1A1A1A;
+      --darker: #121212;
+      --light: #F5F5F5;
+      --gray: #444;
+      --light-gray: #666;
+      --success: #4CAF50;
+      --error: #F44336;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Vazirmatn, Tahoma, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f 0%, #121218 100%);
+      color: var(--light);
+      min-height: 100vh;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .form-box {
+      background: rgba(30, 30, 30, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+    }
+
+    .form-box:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(212, 175, 55, 0.2) 100%);
+      border: 2px solid var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--secondary);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+    }
+
+    h1 {
+      color: var(--secondary);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .server-badge {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: 2px solid var(--secondary);
+    }
+
+    .requirement {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--secondary);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .requirement strong {
+      color: var(--secondary);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--secondary);
+      font-size: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray);
+      background: rgba(20, 20, 20, 0.7);
+      color: var(--light);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .member-section {
+      background: rgba(25, 25, 25, 0.6);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .member-title {
+      color: var(--secondary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .member-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .add-member-btn {
+      background: rgba(212, 175, 55, 0.2);
+      color: var(--secondary);
+      border: 1px dashed var(--secondary);
+      padding: 0.8rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+      margin-top: 1rem;
+    }
+
+    .add-member-btn:hover {
+      background: rgba(212, 175, 55, 0.3);
+    }
+
+    .remove-member {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    button[type="submit"] {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      font-weight: 700;
+      padding: 1.2rem;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      width: 100%;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+      border: 2px solid var(--secondary);
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+    }
+
+    button[type="submit"]:disabled {
+      background: var(--gray);
+      color: var(--light-gray);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      border-color: var(--gray);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: var(--light-gray);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* انیمیشن ها */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-box {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .member-section {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    /* اسکرول بار سفارشی */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--darker);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <div class="header">
+        <div class="logo">⚔️</div>
+        <h1>تأسیس گنگ جدید</h1>
+        <div class="server-badge">سرور  RADAN RP</div>
+        <h2>📋 فرم درخواست رسمی تأسیس گنگ</h2>
+        
+        <div class="requirement">
+          <strong>⚠️ شرایط لازم برای تأسیس گنگ:</strong><br>
+          - حداقل 4 عضو ثابت<br>
+          - داستان و هویت منحصر به فرد<br>
+          - پایبندی به قوانین RP سرور
+        </div>
+      </div>
+
+      <form id="gangCreationForm">
+        <!-- اطلاعات گنگ -->
+        <div class="row">
+          <div class="form-group">
+            <label for="gangName">NAME GANG *</label>
+            <input type="text" id="gangName" name="gangName" placeholder="مثال: Wolves of  RADAN RP" required>
+          </div>
+          <div class="form-group">
+            <label for="gangType">NOE GANG *</label>
+            <select id="gangType" name="gangType" required>
+              <option value="">ENTEKHAB KONID...</option>
+              <option>مافیا</option>
+              <option>موتورسواران</option>
+              <option>خیابانی</option>
+              <option>قاچاقچیان</option>
+              <option>شورشیان</option>
+              <option>سایر</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gangStory">DASTAN VA HOVIAT GANG *</label>
+          <textarea id="gangStory" name="gangStory" placeholder="DASTAN GANG، اهداف، ارزش‌ها و هویت منحصر به فرد آن را شرح دهید..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="gangGoals">AHDAF VA FAALIAT  *</label>
+          <textarea id="gangGoals" name="gangGoals" placeholder="AHDAF GANG، فعالیت‌های اقتصادی، روابط با سایر گنگ‌ها و..." required></textarea>
+        </div>
+
+        <!-- اطلاعات رهبر -->
+        <div class="member-section">
+          <div class="member-title">👑 LEADER GANG</div>
+          <div class="row">
+            <div class="form-group">
+              <label for="leaderName">NAME (IC) *</label>
+              <input type="text" id="leaderName" name="leaderName" required>
+            </div>
+            <div class="form-group">
+              <label for="leaderOOC">NAME OOC *</label>
+              <input type="text" id="leaderOOC" name="leaderOOC" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="leaderDiscord">ID DISCORD *</label>
+              <input type="text" id="leaderDiscord" name="leaderDiscord" placeholder="username#1234" required>
+            </div>
+            <div class="form-group">
+              <label for="leaderExperience">SABEGE RP *</label>
+              <select id="leaderExperience" name="leaderExperience" required>
+                <option value="">ENTEKHAB KONID...</option>
+                <option>کمتر از 1 ماه</option>
+                <option>1 تا 3 ماه</option>
+                <option>3 تا 6 ماه</option>
+                <option>6 ماه تا 1 سال</option>
+                <option>بیش از 1 سال</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEMBER GANG -->
+        <div class="member-section">
+          <div class="member-title">👥 MEMBER GANG (حداقل 3 عضو دیگر)</div>
+          <div id="membersContainer">
+            <!-- MEMBER 1 -->
+            <div class="member-item" data-member="1">
+              <div class="member-title">MEMBER 1</div>
+              <div class="member-row">
+                <div class="form-group">
+                  <label for="member1Name">NAME (IC) *</label>
+                  <input type="text" id="member1Name" name="member1Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="member1OOC">NAME OOC *</label>
+                  <input type="text" id="member1OOC" name="member1OOC" required>
+                </div>
+              </div>
+              <div class="member-row">
+                <div class="form-group">
+                  <label for="member1Discord">ID DISCORD *</label>
+                  <input type="text" id="member1Discord" name="member1Discord" required>
+                </div>
+                <div class="form-group">
+                  <label for="member1Role">RANK *</label>
+                  <input type="text" id="member1Role" name="member1Role" placeholder="مثال: مشاور، جنگجو، تاجر..." required>
+                </div>
+              </div>
+            </div>
+
+            <!-- MEMBER 2 -->
+            <div class="member-item" data-member="2">
+              <div class="member-title">MEMBER 2</div>
+              <div class="member-row">
+                <div class="form-group">
+                  <label for="member2Name">NAME (IC) *</label>
+                  <input type="text" id="member2Name" name="member2Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="member2OOC">NAME OOC *</label>
+                  <input type="text" id="member2OOC" name="member2OOC" required>
+                </div>
+              </div>
+              <div class="member-row">
+                <div class="form-group">
+                  <label for="member2Discord">ID DISCORD *</label>
+                  <input type="text" id="member2Discord" name="member2Discord" required>
+                </div>
+                <div class="form-group">
+                  <label for="member2Role">RANK *</label>
+                  <input type="text" id="member2Role" name="member2Role" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- MEMBER 3 -->
+            <div class="member-item" data-member="3">
+              <div class="member-title">MEMBER 3</div>
+              <div class="member-row">
+                <div class="form-group">
+                  <label for="member3Name">NAME (IC) *</label>
+                  <input type="text" id="member3Name" name="member3Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="member3OOC">NAME OOC *</label>
+                  <input type="text" id="member3OOC" name="member3OOC" required>
+                </div>
+              </div>
+              <div class="member-row">
+                <div class="form-group">
+                  <label for="member3Discord">ID DISCORD *</label>
+                  <input type="text" id="member3Discord" name="member3Discord" required>
+                </div>
+                <div class="form-group">
+                  <label for="member3Role">RANK *</label>
+                  <input type="text" id="member3Role" name="member3Role" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="add-member-btn" id="addMemberBtn">
+            ➕ EZAFE KARDAN OZV
+          </div>
+        </div>
+
+        <!-- ETELAAT -->
+        <div class="form-group">
+          <label for="additionalInfo">ETELAAT</label>
+          <textarea id="additionalInfo" name="additionalInfo" placeholder="هرگونه اطلاعات اضافی، درخواست‌های خاص یا توضیحات..."></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">
+          <span id="submitText">ERSAL DARKHAST GANG</span>
+          <span id="submitIcon">⚔️</span>
+        </button>
+        
+        <div class="footer">
+          <p>📞 پس از ارسال، درخواست شما حداکثر طی 72 ساعت بررسی خواهد شد</p>
+          <p>⚠️ در صورت تأیید، با LEADER GANG برای ادامه فرآیند تماس گرفته می‌شود</p>
+          <p>لینک DISCORD: <a href="https://discord.gg/mDqyjQ4NBd" target="_blank">https://discord.gg/mDqyjQ4NBd</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('gangCreationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitIcon = document.getElementById('submitIcon');
+    const membersContainer = document.getElementById('membersContainer');
+    const addMemberBtn = document.getElementById('addMemberBtn');
+    
+    const KEY = 'gang_creation_form_ RADAN RP';
+    const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1441792605925937274/D7KbxLycFmv8UA5DHT9wP49WQoxX3VHYtX3joBixqY37DzOckFx1nJGZJx9KJmDF26Kr';
+    
+    let memberCount = 3;
+    let isSubmitting = false;
+
+    // EZAFE KARDAN OZV
+    addMemberBtn.addEventListener('click', () => {
+      memberCount++;
+      const newMember = document.createElement('div');
+      newMember.className = 'member-item';
+      newMember.setAttribute('data-member', memberCount);
+      newMember.innerHTML = `
+        <div class="member-title">عضو ${memberCount}</div>
+        <button type="button" class="remove-member" onclick="removeMember(${memberCount})">🗑️ حذف عضو</button>
+        <div class="member-row">
+          <div class="form-group">
+            <label for="member${memberCount}Name">NAME (IC) *</label>
+            <input type="text" id="member${memberCount}Name" name="member${memberCount}Name" required>
+          </div>
+          <div class="form-group">
+            <label for="member${memberCount}OOC">NAME OOC *</label>
+            <input type="text" id="member${memberCount}OOC" name="member${memberCount}OOC" required>
+          </div>
+        </div>
+        <div class="member-row">
+          <div class="form-group">
+            <label for="member${memberCount}Discord">ID DISCORD *</label>
+            <input type="text" id="member${memberCount}Discord" name="member${memberCount}Discord" required>
+          </div>
+          <div class="form-group">
+            <label for="member${memberCount}Role">RANK *</label>
+            <input type="text" id="member${memberCount}Role" name="member${memberCount}Role" required>
+          </div>
+        </div>
+      `;
+      membersContainer.appendChild(newMember);
+    });
+
+    // حذف عضو
+    window.removeMember = (memberNum) => {
+      if (memberCount <= 3) {
+        alert('حداقل باید 3 عضو داشته باشید!');
+        return;
+      }
+      
+      const memberElement = document.querySelector(`[data-member="${memberNum}"]`);
+      if (memberElement) {
+        memberElement.remove();
+        memberCount--;
+        
+        // به روزرسانی شماره اعضا
+        const members = document.querySelectorAll('.member-item');
+        members.forEach((member, index) => {
+          const memberNum = index + 1;
+          member.setAttribute('data-member', memberNum);
+          member.querySelector('.member-title').textContent = `عضو ${memberNum}`;
+          
+          // به روزرسانی id و name inputs
+          const inputs = member.querySelectorAll('input');
+          inputs.forEach(input => {
+            const oldName = input.name;
+            const newName = oldName.replace(/\d+/, memberNum);
+            input.name = newName;
+            input.id = newName;
+          });
+        });
+      }
+    };
+
+    // بارگذاری داده‌های ذخیره شده
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(KEY);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          Object.keys(data).forEach(key => {
+            const element = form.elements[key];
+            if (element) {
+              element.value = data[key];
+            }
+          });
+        } catch (e) {
+          console.error('خطا در بارگذاری داده‌ها:', e);
+        }
+      }
+    });
+
+    // ذخیره خودکار داده‌ها
+    form.addEventListener('input', () => {
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.name && el.type !== 'submit') {
+          data[el.name] = el.value;
+        }
+      });
+      localStorage.setItem(KEY, JSON.stringify(data));
+    });
+
+    // ارسال فرم
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (isSubmitting) return;
+      
+      // بررسی حداقل اعضا
+      if (memberCount < 4) {
+        alert(`❌ حداقل باید 4 عضو داشته باشید! (شما ${memberCount} عضو دارید)`);
+        return;
+      }
+
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      submitText.textContent = 'در حال ارسال...';
+      submitIcon.textContent = '⏳';
+
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // ساخت پیام برای DISCORD
+        let membersInfo = '';
+        for (let i = 1; i <= memberCount; i++) {
+          if (data[`member${i}Name`]) {
+            membersInfo += `
+**MEMBER ${i}:**
+- NAME IC: ${data[`member${i}Name`]}
+- NAME OOC: ${data[`member${i}OOC`]}
+- DISCORD: ${data[`member${i}Discord`]}
+- RANK: ${data[`member${i}Role`]}
+            `;
+          }
+        }
+
+        const content = `
+**🏴 درخواست جدید تأسیس گنگ - سرور  RADAN RP**
+
+**📛 اطلاعات گنگ:**
+**NAME GANG:** ${data.gangName}
+**NOE GANG:** ${data.gangType}
+**TEDAD MEMBER:** ${memberCount} نفر
+
+**📖 DASTAN GANG:**
+${data.gangStory}
+
+**🎯 AHDAF GANG:**
+${data.gangGoals}
+
+**👑 LEADER GANG:**
+- NAME IC: ${data.leaderName}
+- NAME OOC: ${data.leaderOOC}
+- DISCORD: ${data.leaderDiscord}
+- SABEGE RP: ${data.leaderExperience}
+
+**👥 MEMBER GANG (${memberCount} نفر):**
+${membersInfo}
+
+**💎 ETELAAT:**
+${data.additionalInfo || 'ندارد'}
+
+**⏰ تاریخ ارسال:** ${new Date().toLocaleString('fa-IR')}
+        `;
+
+        // ارسال به DISCORD
+        if (DISCORD_WEBHOOK && DISCORD_WEBHOOK.startsWith('https://discord.com/api/webhooks/1441792605925937274/D7KbxLycFmv8UA5DHT9wP49WQoxX3VHYtX3joBixqY37DzOckFx1nJGZJx9KJmDF26Kr')) {
+          const response = await fetch(DISCORD_WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              content: content,
+              username: ' RADAN RP Gang Application',
+            })
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`خطا در ارسال به DISCORD: ${response.status} - ${errorText}`);
+          }
+        } else {
+          throw new Error('آدرس وب‌هوک معتبر نیست');
+        }
+
+        // موفقیت
+        submitText.textContent = 'ارسال موفق!';
+        submitIcon.textContent = '🎉';
+        
+        setTimeout(() => {
+          alert(`✅ درخواست تأسیس گنگ "${data.gangName}" با موفقیت ارسال شد!\n\nTEDAD MEMBER: ${memberCount} نفر\n\nدرخواست شما طی 72 ساعت بررسی خواهد شد.`);
+          form.reset();
+          localStorage.removeItem(KEY);
+          submitText.textContent = 'ERSAL DARKHAST GANG';
+          submitIcon.textContent = '⚔️';
+        }, 1000);
+
+      } catch (err) {
+        console.error('خطا:', err);
+        submitText.textContent = 'خطا در ارسال';
+        submitIcon.textContent = '❌';
+        
+        setTimeout(() => {
+          alert('⚠️ خطا در ارسال. لطفاً دوباره تلاش کنید و مطمئن باشید فیلتر شکن شما روشن باشد.\n\nخطا: ' + err.message);
+          submitText.textContent = 'ERSAL DARKHAST GANG';
+          submitIcon.textContent = '⚔️';
+        }, 1000);
+        
+      } finally {
+        setTimeout(() => {
+          isSubmitting = false;
+          submitBtn.disabled = false;
+        }, 1500);
+      }
+    });
+  </script>
+</body>
+</html>
